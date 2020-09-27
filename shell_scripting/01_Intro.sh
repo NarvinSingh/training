@@ -7,5 +7,5 @@
 #
 echo 'What is your name?'
 read NAME
-echo "Hello $NAME"
+echo "Hello, $NAME."
 
