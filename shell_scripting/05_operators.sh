@@ -3,58 +3,64 @@
 #
 # Arithmetic Operators
 #
-# Note that the spaces around the operator and the numbers are required
-echo '`expr 2 + 3`'
-echo `expr 2 + 3`
-echo
 
-echo '`expr 2 - 3`'
-echo `expr 2 - 3`
-echo
-
-echo '`expr 2 \* 3`'
-echo `expr 2 \* 3`
-echo
-
-# Note that this is integer division (floor)
-echo '`expr 8 / 3`'
-echo `expr 8 / 3`
-echo
-
-echo '`expr 5 % 2`'
-echo `expr 5 % 2`
-echo
-
-echo 'A=1'
+echo '`expr 2 + 3` ->' `expr 2 + 3` # spaces around the operator are required
+echo '`expr 2 - 3` ->' `expr 2 - 3`
+echo '`expr 2 \* 3` ->' `expr 2 \* 3`
+echo '`expr 8 / 3` ->' `expr 8 / 3` # integer division (floor)
+echo '`expr 5 % 2` ->' `expr 5 % 2`
 A=1
-echo "$A"
-echo
+echo "A=1 -> A=$A"
 
-# Note that the spaces around the brackets and the equal signs are required
-echo '[ 1 == 1 ] (when unsetopt EQUALS)'
-unsetopt EQUALS
-[ 1 == 1 ] && echo 'true'
-setopt EQUALS
-echo
-
-echo '[ 1 = 1 ]'
+echo -n '[ 1 = 1 ] -> ' # spaces around the brackets and operator are required
 [ 1 = 1 ] && echo 'true'
-echo
+echo -n '[ 1 = 2 ] -> '
+[ 1 = 2 ] || echo 'false'
+echo -n '[ "hello" = "hello" ] -> '
+[ "hello" = "hello" ] && echo 'true'
+echo -n '[ "HELLO" = "hello" ] -> '
+[ "HELLO" = "hello" ] || echo 'false'
 
-echo '[ 1 != 2 ]'
+unsetopt EQUALS # need to disable equal expansion to use double-equal operator
+echo -n '[ 1 == 1 ] -> '
+[ 1 == 1 ] && echo 'true # unsetopt EQUALS'
+echo -n '[ 1 == 2 ] -> '
+[ 1 == 2 ] || echo 'false # unsetopt EQUALS'
+echo -n '[ "hello" == "hello" ] -> '
+[ "hello" == "hello" ] && echo 'true # unsetopt EQUALS'
+echo -n '[ "HELLO" == "hello" ] -> '
+[ "HELLO" == "hello" ] || echo 'false # unsetopt EQUALS'
+setopt EQUALS
+
+echo -n '[ 1 != 2 ] -> '
 [ 1 != 2 ] && echo 'true'
-echo
+echo -n '[ 1 != 1 ] -> '
+[ 1 != 1 ] || echo 'false'
+echo -n '[ "HELLO" != "hello" ] -> '
+[ "HELLO" != "hello" ] && echo 'true'
+echo -n '[ "hello" != "hello" ] -> '
+[ "hello" != "hello" ] || echo 'false'
 
 #
 # Relational Operators
 #
-echo '[ 1 -eq 1 ]'
+echo -n '[ 1 -eq 1 ] -> '
 [ 1 -eq 1 ] && echo 'true'
-echo
+echo -n '[ 1 -eq 2 ] -> '
+[ 1 -eq 2 ] || echo 'false'
+echo -n '[ "1" -eq "1" ] -> '
+[ "1" -eq "1" ] && echo 'true'
+echo -n '[ "1" -eq "2" ] -> '
+[ "1" -eq "2" ] || echo 'false'
 
 echo '[ 1 -ne 2 ]'
 [ 1 -ne 2 ] && echo 'true'
-echo
+echo '[ 1 -ne 1 ]'
+[ 1 -ne 1 ] || echo 'false'
+echo '[ 1 -ne 2 ]'
+[ 1 -ne 2 ] && echo 'true'
+echo '[ 1 -ne 1 ]'
+[ 1 -ne 1 ] || echo 'false'
 
 echo '[ 2 -gt 1 ]'
 [ 2 -gt 1 ] && echo 'true'
