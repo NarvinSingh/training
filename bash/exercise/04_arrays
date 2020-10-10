@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Array exercises from https://www.tutorialspoint.com/unix/unix-using-arrays.htm
+
+################################################################################
+# Initialize Arrays
+################################################################################
+# Method 1
+names[0]="Narvin"
+names[1]='Marteena'
+names[2]='Charlotte'
+names[3]='Oscar'
+printf "names[0]: ${names[0]}\n"
+printf "names[1]: ${names[1]}\n"
+printf "names[2]: ${names[2]}\n"
+printf "names[3]: ${names[3]}\n\n"
+
+# Method 2
+names2=('Narvin' 'Marteena' 'Charlotte' 'Oscar')
+printf "names2[0]: ${names2[0]}\n"
+printf "names2[1]: ${names2[1]}\n"
+printf "names2[2]: ${names2[2]}\n"
+printf "names2[3]: ${names2[3]}\n\n"
+
+################################################################################
+# Access Array Elements
+################################################################################
+for item in "${names[*]}"; do
+  printf "\"[*]\": $item\n"
+done
+
+for item in ${names[*]}; do
+  printf "[*]: $item\n"
+done
+
+printf '\n'
+
+for item in "${names[@]}"; do
+  printf "\"[@]\": $item\n"
+done
+
+for item in ${names[@]}; do
+  printf "[@]: $item\n"
+done
+

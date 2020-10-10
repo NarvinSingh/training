@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# Variable exercises from
+# https://www.tutorialspoint.com/unix/unix-using-variables.htm
+
+# Make a variable readonly
+name='Narvin Singh'
+name='Marteena'
+readonly name
+name='Charlotte' # This line produces an error
+printf "${name}\n"
+
+# Unset a variable
+v=1
+printf "v is ${v}\n"
+unset v
+printf "v is ${v}\n"
+

@@ -1,62 +1,50 @@
-#!/bin/zsh
-
-# From https://www.tutorialspoint.com/unix/unix-special-variables.htm
-
+#!/bin/bash
 #
-# Special Variables
-#
-echo '$0 - filename of the current script'
-echo $0
-echo
+# Specal variable exercises from
+# https://www.tutorialspoint.com/unix/unix-special-variables.htm
 
-echo '$1 - $n is the nth argument to the script'
-echo $1
-echo
+printf '$0 - filename of the current script\n'
+printf "$0\n\n"
 
-echo '$# - the number of arguments to the script'
-echo $#
-echo
+printf '$1 - $n is the nth argument to the script\n'
+printf "$1\n\n"
 
-echo '$* - if double quoted, all of the arguments to the script as a single string'
-echo '     otherwise, all of the arguments to the script as separate strings'
+printf '$# - the number of arguments to the script\n'
+printf "$#\n\n"
 
-for TOKEN in $*
-do
-  echo "\$*: $TOKEN"
+printf '$* - if double quoted, all the arguments to the script as one string\n'
+printf '     otherwise, all the arguments to the script as separate strings\n'
+
+for token in "$*"; do
+  printf "\"\$*\": ${token}\n"
 done
 
-for TOKEN in "$*"
-do
-  echo "\"\$*\": $TOKEN"
+for token in $*; do
+  printf "\$*: ${token}\n"
 done
 
-echo
+printf '\n'
 
-echo '$@ - all of the arguments to the script as separate strings'
+printf '$@ - all of the arguments to the script as separate strings\n'
 
-for TOKEN in $@
-do
-  echo "\$@: $TOKEN"
+for token in "$@"; do
+  printf "\"\$@\": ${token}\n"
 done
 
-for TOKEN in "$@"
-do
-  echo "\"\$@\": $TOKEN"
+for token in $@; do
+  printf "\$@: ${token}\n"
 done
 
-echo
+printf '\n'
 
-echo '$? - exit code of the last command'
-false # so $? will expand to 1
-echo $?
-echo
+printf '$? - exit code of the last command\n'
+false
+printf "false -> $?\n\n"
 
-echo '$$ - process ID (PID) of the current shell'
-echo $$
-echo
+printf '$$ - process ID (PID) of the current shell\n'
+printf "$$\n\n"
 
-echo '$! - PID of the last background command'
-sleep 0 & # so $! will expand to the PID of this command
-echo $!
-echo
+printf '$! - PID of the last background command\n'
+sleep 0 &
+printf "sleep 0 & -> $!\n"
 
