@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Receives passed arguments or arguments from stdin.
+
+if [[ $# -gt 0 ]]; then
+  # Once printf consumes the number of arguments specified in the format
+  # string and prints the resulting string, it will repeat itself until all
+  # the arguments are consumed. Since the format string only specifies one
+  # argument and the arguments will be expanded to individual quoted strings,
+  # printf will print a formatted string once for each argument, i.e., each
+  # argument will print on a new line due to the newline at the end of the
+  # format string.
+  printf "passed args ($#): %b\n" "$@"
+  printf '*****\n'
+
+  # Now all the arguments will print on the same line because of the space
+  # at the end of the format string instead of a newline.
+  printf "passed args ($#): " # Print the preface first so it isn't repeated,
+  printf '%b ' "$@"           # then print the arguments on one line,
+  printf '\u8\n'              # then print a backspace to delete the space after
+                              # the last argument, and end with a newline
+else
+  mapfile -t stdin_args
+  num_args=${#stdin_args[@]}
+  printf "stdin args (${num_args}): %b\n" "${stdin_args[@]}"
+  printf '*****\n'
+  printf "stdin args (${num_args}): "
+  printf '%b ' "${stdin_args[@]}"
+  printf '\u8\n'
+fi
+
