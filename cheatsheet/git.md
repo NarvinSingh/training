@@ -3,7 +3,7 @@ Git Cheatsheet
 
 Commit Message Style
 --------------------
-See https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/
+See https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/.
 
 - Write in the imperative style, e.g., "Add" instead of "Added."
 
