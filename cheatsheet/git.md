@@ -19,7 +19,7 @@ See https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-g
     - chore: regular code maintenance
 
 ### Body
-- 72 character line length 
+- 72 character line length
 - Separate from the subject with a blank line
 
 Undo the Last Commit
