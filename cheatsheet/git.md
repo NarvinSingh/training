@@ -59,3 +59,22 @@ git checkout master
 git merge feature
 ```
 
+Track Branch
+------------
+```Shell
+# Show tracked branches (porcelain)
+git branch -vv
+
+# Show tracked branch (plumbing)
+git rev-parse --abbrev-ref master@{u}
+
+# Track a remote branch when checking it out
+git checkout --track origin/dev
+
+# Have a branch track a remote branch when pushing the branch for the first time
+git push -u origin dev
+
+# Have the current HEAD branch track a remote branch
+git branch -u origin/dev
+```
+
