@@ -100,7 +100,7 @@ zk
 
 Tabs
 ----
-See https://vim.fandom.com/wiki/Using_tab_pages.
+See [Using tab pages](https://vim.fandom.com/wiki/Using_tab_pages).
 
 ### Opening and Closing
 ```vim
