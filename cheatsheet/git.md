@@ -22,8 +22,8 @@ See [How to Write Good Commit Messages](https://www.freecodecamp.org/news/writin
 - 72 character line length
 - Separate from the subject with a blank line
 
-Undo the Last Commit
---------------------
+Undo Last Commit
+----------------
 ```Shell
 # The changes remain staged, but the working tree is unchanged
 git reset --soft HEAD~
@@ -41,8 +41,8 @@ git commit -c ORIG_HEAD
 git commit -C ORIG_HEAD
 ```
 
-Delete Branches
----------------
+Delete Branch
+-------------
 ```Shell
 # Delete a local branch
 git branch -d branch_name
@@ -51,8 +51,8 @@ git branch -d branch_name
 git push origin --delete branch_name
 ```
 
-Merge Branches
---------------
+Merge Branch
+------------
 ```Shell
 # Merge the feature branch into the master branch
 git checkout master
