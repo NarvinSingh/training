@@ -26,9 +26,9 @@ See [UNIX Shell Quotes](https://grymoire.com/unix/Quote.html).
 
 ### Backslash
 
-`\` is the strongest form of quote, escaping any special meaning any character
-that follows it may have, resulting in the combination being the literal
-character that follows the `\`.
+`\` is the strongest form of quoting, escaping any special meaning any
+character that follows it may have, resulting in the combination being the
+literal character that follows the `\`.
 
 - `\\` is a literal `\`
 - `\$` is a literal `$`
@@ -55,7 +55,7 @@ hello\nworld
 
 ### Single Quotes
 
-`''` are the second strongest form of quotes, escaping the meaning of *almost*
+`''` are the second strongest form of quoting, escaping the meaning of *almost*
 any characters they surround.
 
 - `''` don't escape the meaning of `'` so you can't include `'` between `''`.
@@ -87,7 +87,7 @@ hello\nworld
 
 ### Double Quotes
 
-`""` are the weakest form of quotes, which expand variables and do command
+`""` are the weakest form of quoting, which expand variables and do command
 substitution, but won't expand most other special characters.
 
 - `""` don't escape the meaning of `"` so you can't include `"` between `""`.
