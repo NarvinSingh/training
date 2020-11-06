@@ -4,6 +4,8 @@ Quotes Cheatsheet
 Print Functions
 ---------------
 
+See `man bash-builtins`.
+
 ### printf
 
 - `printf FORMAT` will expand backslash-escaped sequences within `FORMAT`
@@ -117,10 +119,11 @@ hello\nworld
 
 ### ANSI-C Quoting
 
-`$''` expands backslash-escaped sequences within the
-`''` according to the ANSI C standard. The result is
-wrapped in `''` as if the `$` were not there. See [ANSI-C
+See [ANSI-C
 Quoting](https://www.gnu.org/software/bash/manual/html_node/ANSI_002dC-Quoting.html#ANSI_002dC-Quoting).
+
+`$''` expands backslash-escaped sequences within the `''` according to the
+ANSI C standard. The result is wrapped in `''` as if the `$` were not there.
 
 - `$'\n'` is a carriage return
 
