@@ -33,7 +33,7 @@ literal character that follows the `\`.
 - `\\` is a literal `\`
 - `\$` is a literal `$`
 - `\n` is a literal `n`
-- `\\n` is a literal `\n` which may then be expanded to a carriage return
+- `\\n` is a literal `\n` which may then be expanded to a newline
 
 The `\` escapes the `n`, which has no special meaning, resulting in a literal
 `n`.
@@ -44,7 +44,7 @@ hellonworld
 ```
 
 The first `\` escapes the second one, resulting in a literal `\`. The -e
-option expands the resulting `\n` to a carriage return.
+option expands the resulting `\n` to a newline.
 
 ```Shell
 $ echo -e hello\\nworld
@@ -52,7 +52,7 @@ hello
 world
 ```
 
-Here, the -E option does not expand the resulting `\n` to a carriage return.
+Here, the -E option does not expand the resulting `\n` to a newline.
 
 ```Shell
 $ echo -E hello\\nworld
@@ -69,7 +69,7 @@ hello
 world
 ```
 
-Here, the -E option does not expand the resulting `\n` to a carriage return.
+Here, the -E option does not expand the resulting `\n` to a newline.
 
 ```Shell
 $ echo -E hello\\\nworld
@@ -78,7 +78,7 @@ hello\nworld
 
 The first `\` escapes the second one, resulting in a literal `\`. The third
 `\` escapes the fourth one, resulting in a second literal `\`. The -e option
-expands the resulting `\\n` to a literal `\n`, and not a carriage return.
+expands the resulting `\\n` to a literal `\n`, and not a newline.
 
 ```Shell
 $ echo -e hello\\\\nworld
@@ -100,7 +100,7 @@ any characters they surround.
 - `''` don't escape the meaning of `'` so you can't include `'` between `''`.
 - `'"'` is a literal `"`
 - `'\'` is a literal `\`
-- `'\n'` is a literal `\n` which may then be expanded to a carriage return
+- `'\n'` is a literal `\n` which may then be expanded to a newline
 
 The `''` escape the meaning of `${var}`, resulting in a literal `${var}`.
 
@@ -118,7 +118,7 @@ hello"world
 ```
 
 The `''` escape the meaning of the `\`, resulting in a literal `\`. The -e
-option expands the resulting `\n` to a carriage return.
+option expands the resulting `\n` to a newline.
 
 ```Shell
 $ echo -e 'hello\nworld'
@@ -126,7 +126,7 @@ hello
 world
 ```
 
-Here, the -E option does not expand the resulting `\n` to a carriage return.
+Here, the -E option does not expand the resulting `\n` to a newline.
 
 ```Shell
 $ echo -E 'hello\nworld'
@@ -149,8 +149,8 @@ hello\\nworld
 ```
 
 The `''` escape the meaning of all three `\`'s resulting in a literal
-`\\\`. The -e option expands the resulting `\\\n` to a literal `\` and a
-carriage return.
+`\\\`. The -e option expands the resulting `\\\n` to a literal `\` and
+a newline.
 
 ```Shell
 $ echo -e 'hello\\\nworld'
@@ -159,7 +159,7 @@ world
 ```
 
 Here, the -E option does not expand the resulting `\\\n` to a literal `\`
-and a carriage return.
+and a newline.
 
 ```Shell
 $ echo -E 'hello\\\nworld'
@@ -190,7 +190,7 @@ substitution, but won't expand most other special characters.
 - `""` don't escape the meaning of `"` so you can't include `"` between `""`.
 - `"'"` is a literal `'`
 - `"\"` is a literal `\`
-- `"\n"` is a literal `\n` which may then be expanded to a carriage return
+- `"\n"` is a literal `\n` which may then be expanded to a newline
 
 The `""` don't escape the meaning of `${var}` and the variable is expanded.
 
@@ -218,11 +218,11 @@ Quoting](https://www.gnu.org/software/bash/manual/html_node/ANSI_002dC-Quoting.h
 `$''` expands backslash-escaped sequences within the `''` according to the
 ANSI C standard. The result is wrapped in `''` as if the `$` were not there.
 
-- `$'\n'` is a carriage return
+- `$'\n'` is a newline
 
-In both of these examples, the strings contain literal carriage returns, so
-whether or not expansion is enabled, there is nothing to expand and carriage
-returns are output.
+In both of these examples, the strings contain literal newlines, so whether
+or not expansion is enabled, there is nothing to expand and carriage returns
+are output.
 
 ```Shell
 $ echo -e $'hello\nworld'
